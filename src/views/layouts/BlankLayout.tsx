@@ -1,15 +1,21 @@
-// ** React Imports
-import { ReactNode } from 'react'
-
-// ** MUI Imports
-import { Box } from '@mui/material'
+import * as React from 'react'
+import { NextPage } from 'next'
+import { Box, BoxProps, styled } from '@mui/material'
 
 type TProps = {
-  children: ReactNode
+  children: React.ReactNode
 }
 
-const BlankLayout = ({ children }: TProps) => {
-  return <Box sx={{ minHeight: '100vh' }}>{children}</Box>
+const BlankLayoutWrapper = styled(Box)<BoxProps>(({ theme }) => ({
+  height: '100vh'
+}))
+
+const BlankLayout: NextPage<TProps> = ({ children }) => {
+  return (
+    <BlankLayoutWrapper>
+      <Box sx={{ overflow: 'hidden', minHegiht: '100vh' }}>{children}</Box>
+    </BlankLayoutWrapper>
+  )
 }
 
 export default BlankLayout

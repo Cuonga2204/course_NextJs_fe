@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Button from '@mui/material/Button'
 import { Box, useTheme } from '@mui/material'
 import CustomTextField from 'src/components/text-field'
+import LayoutNotApp from 'src/views/layouts/LayoutNotApp'
+import { ReactNode } from 'react'
 
 export default function Home() {
   const themes = useTheme()
@@ -22,3 +24,5 @@ export default function Home() {
     </>
   )
 }
+
+Home.getLayout = (page: ReactNode) => <LayoutNotApp>{page}</LayoutNotApp>
