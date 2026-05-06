@@ -1,4 +1,3 @@
-'use client'
 import Head from 'next/head'
 import Button from '@mui/material/Button'
 import { Box, useTheme } from '@mui/material'
