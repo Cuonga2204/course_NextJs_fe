@@ -17,10 +17,10 @@ const UserLayout = ({ children }: TProps) => {
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
-      <VerticalNav collapsed={collapsed} />
+      <VerticalNav collapsed={collapsed} onToggle={() => setCollapsed(prev => !prev)} />
 
       <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, overflow: 'hidden' }}>
-        <HorizontalAppBar onToggle={() => setCollapsed(prev => !prev)} />
+        <HorizontalAppBar />
 
         <Box component='main' sx={{ flex: 1, p: 4, bgcolor: 'background.default' }}>
           {children}

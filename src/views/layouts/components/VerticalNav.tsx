@@ -1,8 +1,11 @@
 // ** MUI Imports
-import { Box, Divider, List, ListItemButton, ListItemText, Typography } from '@mui/material'
+import { Box, Divider, IconButton, List, ListItemButton, ListItemText, Typography } from '@mui/material'
 
 // ** Next Imports
 import { useRouter } from 'next/router'
+
+// ** Component Imports
+import Icon from 'src/components/Icon'
 
 const NAV_ITEMS = [
   { label: 'Orders', path: '/orders' },
@@ -18,13 +21,14 @@ const SAVED_REPORTS = [
 ]
 
 const DRAWER_WIDTH = 240
-const COLLAPSED_WIDTH = 0
+const COLLAPSED_WIDTH = 48
 
 type TProps = {
   collapsed: boolean
+  onToggle: () => void
 }
 
-const VerticalNav = ({ collapsed }: TProps) => {
+const VerticalNav = ({ collapsed, onToggle }: TProps) => {
   const router = useRouter()
 
   return (
@@ -46,7 +50,13 @@ const VerticalNav = ({ collapsed }: TProps) => {
           })
       }}
     >
-      <List disablePadding sx={{ mt: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: 1, py: 1 }}>
+        <IconButton onClick={onToggle} size='small'>
+          <Icon icon='tabler:menu-2' fontSize={20} />
+        </IconButton>
+      </Box>
+
+      <List disablePadding sx={{ display: collapsed ? 'none' : 'block' }}>
         {NAV_ITEMS.map(item => (
           <ListItemButton
             key={item.path}
@@ -70,15 +80,15 @@ const VerticalNav = ({ collapsed }: TProps) => {
         ))}
       </List>
 
-      <Divider sx={{ my: 1 }} />
+      <Divider sx={{ my: 1, display: collapsed ? 'none' : 'block' }} />
 
-      <Box sx={{ px: 3, py: 1.5 }}>
+      <Box sx={{ px: 3, py: 1.5, display: collapsed ? 'none' : 'block' }}>
         <Typography variant='caption' color='text.secondary' fontWeight={700} letterSpacing={1.2} noWrap>
           SAVED REPORTS
         </Typography>
       </Box>
 
-      <List disablePadding>
+      <List disablePadding sx={{ display: collapsed ? 'none' : 'block' }}>
         {SAVED_REPORTS.map(item => (
           <ListItemButton
             key={item.path}
