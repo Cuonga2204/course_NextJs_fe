@@ -21,6 +21,7 @@ import Icon from 'src/components/Icon'
 
 // ** Styles
 import { useLoginStyles } from './login.styles'
+import { useAuth } from 'src/hooks/useAuth'
 
 type TFormValues = TLoginSchema
 
@@ -30,7 +31,7 @@ const LoginPage: NextPage<TProps> = () => {
   const styles = useLoginStyles()
   const [showPassword, setShowPassword] = useState(false)
   const [rememberMe, setRememberMe] = useState(false)
-
+  const { login } = useAuth()
   const {
     control,
     handleSubmit,
@@ -43,6 +44,7 @@ const LoginPage: NextPage<TProps> = () => {
 
   const onSubmit = (data: TFormValues) => {
     console.log('login data', data, 'rememberMe', rememberMe)
+    login({ ...data, rememberMe })
   }
 
   return (
