@@ -37,7 +37,7 @@ const LoginPage: NextPage<TProps> = () => {
     handleSubmit,
     formState: { errors }
   } = useForm<TFormValues>({
-    defaultValues: { email: '', password: '' },
+    defaultValues: { email: 'cuonga2242002@gmail.com', password: 'Cuong@123456' },
     resolver: yupResolver(loginSchema),
     mode: 'onBlur'
   })
