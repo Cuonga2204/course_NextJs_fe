@@ -27,7 +27,6 @@ const GuestGuard = (props: GuestGuardProps) => {
   // ** auth
   const authContext = useAuth()
   useEffect(() => {
-    console.log(`router :`, router)
     if (!router.isReady) {
       return
     }

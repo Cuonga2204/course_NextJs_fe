@@ -43,7 +43,6 @@ const LoginPage: NextPage<TProps> = () => {
   })
 
   const onSubmit = (data: TFormValues) => {
-    console.log('login data', data, 'rememberMe', rememberMe)
     login({ ...data, rememberMe })
   }
 

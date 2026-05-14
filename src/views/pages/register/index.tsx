@@ -42,9 +42,7 @@ const RegisterPage: NextPage<TProps> = () => {
     mode: 'onBlur'
   })
 
-  const onSubmit = (data: TFormValues) => {
-    console.log('register data', data)
-  }
+  const onSubmit = (data: TFormValues) => {}
 
   return (
     <Box sx={styles.wrapper}>
@@ -146,20 +144,11 @@ const RegisterPage: NextPage<TProps> = () => {
                 </Link>
               </Typography>
             }
-            control={
-              <Checkbox size='small' checked={agreeTerms} onChange={e => setAgreeTerms(e.target.checked)} />
-            }
+            control={<Checkbox size='small' checked={agreeTerms} onChange={e => setAgreeTerms(e.target.checked)} />}
           />
 
           {/* Submit */}
-          <Button
-            type='submit'
-            fullWidth
-            variant='contained'
-            size='large'
-            disabled={!agreeTerms}
-            sx={styles.submitBtn}
-          >
+          <Button type='submit' fullWidth variant='contained' size='large' disabled={!agreeTerms} sx={styles.submitBtn}>
             Create account
           </Button>
 
