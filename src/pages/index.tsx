@@ -7,7 +7,6 @@ import { ReactNode } from 'react'
 
 export default function Home() {
   const themes = useTheme()
-  console.log(`themes :`, themes)
 
   return (
     <>
